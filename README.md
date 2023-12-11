@@ -73,7 +73,7 @@ returns an sf object and terra’s <br>
 returns a SpatVector object.
 
 
-# Alternative functions         
+## Alternative functions         
                                       
 | rgdal                   | sf	                  | terra              |
 | ----------------------- | --------------------- | ------------------ |
