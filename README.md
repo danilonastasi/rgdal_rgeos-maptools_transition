@@ -59,20 +59,20 @@ Look at your package dependencies and check if you use any of the affected packa
 sf package, which is a modern alternative to rgdal and rgeos, and also provides a spatial vector data representation in R.
 terra package, which gives support to working with spatial vector and raster data in R.
 
-install.packages("sf")
-library(sf)
-install.packages("terra")
-library(terra)
+install.packages("sf") <br>
+library(sf) <br>
+install.packages("terra") <br>
+library(terra) 
 
 You just need to be aware that functions in these packages are not always identical to the ones in the affected packages. They may have different arguments, different defaults, expect different inputs, or return different outputs. For example, rgdal’s 
 
-readOGR() 
+readOGR() <br>
 function returns a Spatial*DataFrame object, while sf’s 
 
-read_sf() 
+read_sf() <br>
 returns an sf object and terra’s 
 
-vect() 
+vect() <br>
 returns a SpatVector object.
 
 
