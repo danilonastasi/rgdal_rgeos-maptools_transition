@@ -75,10 +75,10 @@ returns a SpatVector object.
 
 # Alternative functions         
                                       
-| rgdal |                 | sf	                  | terra
-| ----------------------- | --------------------- | ------------------
-| readOGR()	              | read_sf()	            | vect()
-| writeOGR()	            | write_sf()	          | writeVector()
+| rgdal |                 | sf	                  | terra              |
+| ----------------------- | --------------------- | ------------------ |
+| readOGR()	              | read_sf()	            | vect()             |
+| writeOGR()	            | write_sf()	          | writeVector()      |
 
 The rgeos functions also have their equivalents in sf and terra.
 
@@ -89,7 +89,8 @@ could be replaced with <br>
 rgeos::gUnaryUnion() <br>
 and <br>
 maptools::spRbind() <br>
-with sp::rbind()<br>
+with <br> 
+sp::rbind()
 
 # The table below shows their modern substitutes:
 
