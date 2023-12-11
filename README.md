@@ -67,7 +67,7 @@ You just need to be aware that functions in these packages are not always identi
 
 readOGR() <br> function returns a Spatial*DataFrame object, while sf’s 
 <br> read_sf() <br> returns an sf object and terra’s
-<br> vect() <br> returns a SpatVector object.
+vect() <br> returns a SpatVector object.
 
 
 # Alternative functions         
