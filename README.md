@@ -30,8 +30,8 @@ The most basic way to test if your code is affected by the upcoming changes is t
 
 There is also a possibility that you use the sp package but not the affected packages. In this case, you may still be touched by the changes, because the sp package had interacted with rgdal and rgeos in the background. For example, if you run the spTransform() function from the sp package, it used the rgdal package in the background. Thus, you may add the following code to your script to check if it will work in the future:
 
-options("sp_evolution_status" = 2) # use sf instead of rgdal and rgeos in sp 
-<br> library(sp)
+**options("sp_evolution_status" = 2)** # use sf instead of rgdal and rgeos in sp 
+<br> **library(sp)**
 
 If you get an error, it means that your code is affected by the changes.
 
@@ -46,9 +46,9 @@ If you have some old scripts that use the retired packages, you have a few optio
 
 You also may have old sp objects that you want to use in the future. Then, you can convert them to the modern equivalents with functions such as 
 
-sf::st_as_sf() <br>
+**sf::st_as_sf()** <br>
 or <br>
-terra::vect()
+**terra::vect()**
 
                                       
 # Solutions for package developers    
@@ -58,18 +58,18 @@ Look at your package dependencies and check if you use any of the affected packa
 sf package, which is a modern alternative to rgdal and rgeos, and also provides a spatial vector data representation in R.
 terra package, which gives support to working with spatial vector and raster data in R.
 
-install.packages("sf") <br>
-library(sf) <br>
-install.packages("terra") <br>
-library(terra) 
+**install.packages("sf")** <br>
+**library(sf)** <br>
+**install.packages("terra")** <br>
+**library(terra)** 
 
 You just need to be aware that functions in these packages are not always identical to the ones in the affected packages. They may have different arguments, different defaults, expect different inputs, or return different outputs. For example, rgdal’s 
 
-readOGR() <br> 
+**readOGR()** <br> 
 function returns a Spatial*DataFrame object, while sf’s <br> 
-read_sf() <br> 
+**read_sf()** <br> 
 returns an sf object and terra’s <br> 
-vect() <br> 
+**vect()** <br> 
 returns a SpatVector object.
 
 
@@ -84,51 +84,52 @@ The rgeos functions also have their equivalents in sf and terra.
 
 Interestingly, the most often used maptools functions have been already deprecated for a long time and alternative tools for the same purposes existed, e.g.,
 
-unionSpatialPolygons() <br>
+**unionSpatialPolygons()** <br>
 could be replaced with <br>
-rgeos::gUnaryUnion() <br>
+**rgeos::gUnaryUnion()** <br>
 and <br>
-maptools::spRbind() <br>
+**maptools::spRbind()** <br>
 with <br> 
-sp::rbind()
+**sp::rbind()**
 
 # The table below shows their modern substitutes:
 
-rgeos	                    sf	                      terra
-gArea()	                st_area()	                  expanse()
-gBuffer()	              st_buffer()	                buffer()
-gCentroid()	            st_centroid()	              centroids()
-gDistance()	            st_distance()	              distance()
-gIntersection()	        st_intersection()	          crop()
-gIntersects()	          st_intersects()	            relate()
+| rgeos	                  | sf	                    | terra                |
+| ----------------------- | ----------------------- | -------------------- |
+| gArea()	                | st_area()	              | expanse()            |
+| gBuffer()	              | st_buffer()	            | buffer()             |
+| gCentroid()	            | st_centroid()	          | centroids()          |
+| gDistance()	            | st_distance()	          | distance()           |
+| gIntersection()	        | st_intersection()	      | crop()               |
+| gIntersects()	          | st_intersects()	        | relate()             |
 
-maptools	                    sf	                    terra
-unionSpatialPolygons()	    st_union()	              aggregate()
-spRbind()	                  rbind()	                  rbind()
+| maptools	              | sf	                    | terra                |
+| ----------------------- | ----------------------- | -------------------- |
+| unionSpatialPolygons()	| st_union()	            | aggregate()          | 
+| spRbind()	              | rbind()	                | rbind()              |
 
 The sp package is not going to be removed from CRAN soon, but it is good to stop using it because it is no longer being actively developed. Here you can find some replacements for its basic functions:
 
-sp	                    sf	                        terra
-bbox()	                st_bbox()	                  ext()
-coordinates()	          st_coordinates()	          crds()
-identicalCRS()	        st_crs(x) == st_crs(y)	    crs(x) == crs(y)
-over()	                st_intersects()	            relate()
-point.in.polygon()	    st_intersects()	            relate()
-proj4string()	          st_crs()	                  crs()
-spsample()	            st_sample()	                spatSample()
-spTransform()	          st_transform()	            project()
+| sp	                    | sf	                        | terra              |
+| ----------------------- | --------------------------- | ------------------ |
+| bbox()	                | st_bbox()	                  | ext()              |
+| coordinates()	          | st_coordinates()	          | crds()             |
+| identicalCRS()	        | st_crs(x) == st_crs(y)	    | crs(x) == crs(y)   |
+| over()	                | st_intersects()	            | relate()           |
+| point.in.polygon()	    | st_intersects()	            | relate()           |
+| proj4string()	          | st_crs()	                  | crs()              |
+| spsample()	            | st_sample()	                | spatSample()       |
+| spTransform()	          | st_transform()	            | project()          |
 
-You also may want to visit the comparison table:
-https://github.com/r-spatial/evolution/blob/main/pkgapi_230305_refs.csv
-and the migration wiki:
-https://github.com/r-spatial/sf/wiki/Migrating
+You also may want to visit the comparison table: <br> https://github.com/r-spatial/evolution/blob/main/pkgapi_230305_refs.csv <br> 
+and the migration wiki: <br> https://github.com/r-spatial/sf/wiki/Migrating <br>
 to get more complete lists of alternative functions to the ones from rgdal, rgeos, and maptools.
 
 Additionally, you may still want to accept sp objects as inputs and return them as outputs of your functions. In such case, you can use the 
 
-sf::st_as_sf() 
-or 
-terra::vect() 
+**sf::st_as_sf()** <br>
+or <br>
+**terra::vect()** 
 
 functions to convert sp objects to the modern equivalents, perform required spatial operations with sf/terra, and then convert the results back to sp objects with as(x, "Spatial"). Packages depending on sp would also need to add sf as their weak dependency.
 
