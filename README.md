@@ -75,21 +75,21 @@ returns a SpatVector object.
 
 # Alternative functions         
                                       
-rgdal	                    sf	                      terra
-readOGR()	              read_sf()	                  vect()
-writeOGR()	            write_sf()	                writeVector()
+| rgdal |                 | sf	                  | terra
+| ----------------------- | --------------------- | ------------------
+| readOGR()	              | read_sf()	            | vect()
+| writeOGR()	            | write_sf()	          | writeVector()
 
 The rgeos functions also have their equivalents in sf and terra.
 
 Interestingly, the most often used maptools functions have been already deprecated for a long time and alternative tools for the same purposes existed, e.g.,
 
-unionSpatialPolygons() 
-could be replaced with 
-rgeos::gUnaryUnion()
-
-and 
-maptools::spRbind() 
-with sp::rbind()
+unionSpatialPolygons() <br>
+could be replaced with <br>
+rgeos::gUnaryUnion() <br>
+and <br>
+maptools::spRbind() <br>
+with sp::rbind()<br>
 
 # The table below shows their modern substitutes:
 
