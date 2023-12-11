@@ -94,14 +94,14 @@ with <br>
 
 # The table below shows their modern substitutes:
 
-| rgeos	                  | sf	                    | terra                |
-| ----------------------- | ----------------------- | -------------------- |
-| gArea()	                | st_area()	              | expanse()            |
-| gBuffer()	              | st_buffer()	            | buffer()             |
-| gCentroid()	            | st_centroid()	          | centroids()          |
-| gDistance()	            | st_distance()	          | distance()           |
-| gIntersection()	        | st_intersection()	      | crop()               |
-| gIntersects()	          | st_intersects()	        | relate()             |
+| rgeos	                  | sf	                      | terra                |
+| ----------------------- | -----------------------   | -------------------- |
+| gArea()	                | st_area()	                | expanse()            |
+| gBuffer()	              | st_buffer()	# arg. 'dist' | buffer()             |
+| gCentroid()	            | st_centroid()	            | centroids()          |
+| gDistance()	            | st_distance()	            | distance()           |
+| gIntersection()	        | st_intersection()	        | crop()               |
+| gIntersects()	          | st_intersects()	          | relate()             |
 
 | maptools	              | sf	                    | terra                |
 | ----------------------- | ----------------------- | -------------------- |
