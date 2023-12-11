@@ -30,7 +30,7 @@ The most basic way to test if your code is affected by the upcoming changes is t
 
 There is also a possibility that you use the sp package but not the affected packages. In this case, you may still be touched by the changes, because the sp package had interacted with rgdal and rgeos in the background. For example, if you run the spTransform() function from the sp package, it used the rgdal package in the background. Thus, you may add the following code to your script to check if it will work in the future:
 
-**options("sp_evolution_status" = 2)** # use sf instead of rgdal and rgeos in sp 
+__options("sp_evolution_status" = 2)__ # use sf instead of rgdal and rgeos in sp 
 <br> **library(sp)**
 
 If you get an error, it means that your code is affected by the changes.
