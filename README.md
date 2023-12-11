@@ -4,8 +4,7 @@ how to substitute rgdal functions with new functions from other packages
 # rgdal was a package archived from CRAN on 2023-10-16: 
 https://cran.r-project.org/web/packages/rgdal/index.html
 
-about transition, description from: 
-/ https://www.r-bloggers.com/2023/06/upcoming-changes-to-popular-r-packages-for-spatial-data-what-you-need-to-do/
+about transition, description from: / https://www.r-bloggers.com/2023/06/upcoming-changes-to-popular-r-packages-for-spatial-data-what-you-need-to-do/
 
 
 # The issue
