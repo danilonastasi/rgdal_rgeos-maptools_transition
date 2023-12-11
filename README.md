@@ -75,7 +75,7 @@ returns a SpatVector object.
 
 # Alternative functions         
                                       
-| rgdal |                 | sf	                  | terra              |
+| rgdal                   | sf	                  | terra              |
 | ----------------------- | --------------------- | ------------------ |
 | readOGR()	              | read_sf()	            | vect()             |
 | writeOGR()	            | write_sf()	          | writeVector()      |
