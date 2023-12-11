@@ -65,9 +65,7 @@ library(terra)
 
 You just need to be aware that functions in these packages are not always identical to the ones in the affected packages. They may have different arguments, different defaults, expect different inputs, or return different outputs. For example, rgdal’s 
 
-readOGR() <br> function returns a Spatial*DataFrame object, while sf’s 
-<br> read_sf() <br> returns an sf object and terra’s
-vect() <br> returns a SpatVector object.
+readOGR() <br> function returns a Spatial*DataFrame object, while sf’s <br> read_sf() <br> returns an sf object and terra’s <br> vect() <br> returns a SpatVector object.
 
 
 # Alternative functions         
